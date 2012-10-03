@@ -1,25 +1,24 @@
 <?php
 
 //UNDER CONSTRUCTION
-
+// Session Init
 session_start();
+// Compression
+if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip'))
+	ob_start("ob_gzhandler");
+ else
+	ob_start();
+// Enable Page Includes.
+define("GAWEBNY", true);
+// Init
+require_once("system/db.php");
 
-//$dhost = "localhost"; // DB Server
-//$duser = "root"; // DB User
-//$dpass = ""; // DB Password
-//$dbname = ""; // DB Name
-
-//$con = @mysql_connect($dhost,$duser,$dpass);
-//$selectdb = @mysql_select_db($dbname,$con);
-
-$type = $_GET['s'];
 include('header.php');
-switch($type)
-{
-	case 'add': include('add.php');break;
-	case 'search': include('search.php');break;
-	default: include('home.php');
-}
+#Page Include
+$Page = str_repace(".","",htmlentities($_GET['s']));
+$Page = $Page && file_exists("pages/".$Page.".php") ? $Page : "index";
+include("pages/".$Page.".php");
+
 include('footer.php');
 
 ?>
