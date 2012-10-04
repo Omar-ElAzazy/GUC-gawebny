@@ -3,8 +3,7 @@
 if(!defined("GAWEBNY"))
 	exit;
 
-//$mysqlCon = @mysql_connect("host","user","password");
-//$mysqlDB = @mysql_select_db("database",$mysqlCon);
-
+$mysqlCon = @mysql_connect("localhost","root","localhostess");
+$mysqlDB = @mysql_select_db("gawebny",$mysqlCon);
 
 ?>
