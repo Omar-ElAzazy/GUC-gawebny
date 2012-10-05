@@ -15,5 +15,12 @@
 	</head>
 	
 	<body>
-		<div class="Main">
+		<div id="topbar">
+			<table id="topnav" align="center">
+				<tr>
+					<td>Logo</td>
+					<td>User Panel</td>
+				</tr>
+			</table>
+		</div>
 	

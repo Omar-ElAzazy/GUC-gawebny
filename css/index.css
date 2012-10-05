@@ -9,3 +9,14 @@
 body {
     background-color: 2F3742;
 }
+
+#topbar {
+    width: 100%;
+    vertical-align: top;
+    text-align: center;
+    background-color: #374458;
+}
+#topnav {
+    text-align: center;
+    width: 60%;
+}

@@ -19,7 +19,7 @@ include('header.php');
 $Page = str_replace(".","",htmlentities($_GET['s']));
 $Page = $Page && file_exists("pages/$Page.php") ? $Page : "index";
 // Component Version Check
-if($Page != "index" && file_exists("version/$Page.php")) {
+if(file_exists("version/$Page.php")) {
 	// Retrieve Version File
 	include("version/$Page.php");
 	// Check Locally Installed Version
@@ -28,6 +28,7 @@ if($Page != "index" && file_exists("version/$Page.php")) {
 	// Update if needed
 	if($InstalledVersion < $ComponentVersion)
 		updateLocalComponent();
+	mysql_query("UPDATE components SET version = '$ComponentVersion' WHERE compid = $ComponentID");
 }
 include("pages/".$Page.".php");
 

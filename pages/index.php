@@ -4,4 +4,3 @@ if(!defined("GAWEBNY"))
 	exit;
 
 ?>
-Test
